@@ -1,0 +1,5 @@
+{
+  "globalDependencies": {
+    "statsd-client": "registry:dt/statsd-client#0.1.0+20160809061446"
+  }
+}
