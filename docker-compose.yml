@@ -11,15 +11,13 @@ services:
 
   telegraf:
     container_name: local-telegraf
-    image: telegraf:1.0.1
+    image: speedazerty/telegraf:latest
     ports:
       - "8125:8125/udp" # StatsD
-      - "8092:8092" # UDP
+      - "8092:8092/udp" # UDP
       - "8094:8094" # TCP
     links:
       - influxdb
-    volumes:
-      - "./telegraf.conf:/etc/telegraf/telegraf.conf:ro"
 
   influxdb:
     container_name: local-influxdb
