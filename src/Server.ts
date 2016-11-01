@@ -29,14 +29,22 @@ export class Server {
         });
 
         this.app.get('/request', (req: Request, res: Response) => {
-            client.increment('request,host=localhost,path=/test/home');
+            client.increment(`request,`
+                +`podIp=${process.env.POD_IP},`
+                +`podName=${process.env.POD_NAME},`
+                +`podNamespace=${process.env.POD_NAMESPACE},`
+                +`path=/test/home`);
 
             //request delay 10-50ms
             const delay: number = Math.floor((Math.random() * 50) + 10)
             setTimeout(() => {
-                client.timing('latency,host=localhost,path=/test/home', req.query.date);
+                client.timing(`latency,`
+                +`podIp=${process.env.POD_IP},`
+                +`podName=${process.env.POD_NAME},`
+                +`podNamespace=${process.env.POD_NAMESPACE},`
+                +`path=/test/home`, req.query.date);
                 res.send('metric sent.');
-            },  delay);            
+            },  delay);
         });
 
         return new Promise<void>((resolve, reject) => {

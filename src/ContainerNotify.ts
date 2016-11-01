@@ -12,7 +12,11 @@ const client = new StatsdClient({
     debug: true
 });
 
-client.increment('up,host=localhost,path=/test/home');
+client.increment(`up,`
++`podIp=${process.env.POD_IP},`
++`podName=${process.env.POD_NAME},`
++`podNamespace=${process.env.POD_NAMESPACE},`
++`path=/test/home`);
 console.log('test');
 
 fs.appendFile('notified.event', `Event sent ${(new Date().toString())}`, (err: Error) => {
