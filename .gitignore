@@ -1,3 +1,5 @@
 /node_modules
 /typings
 /build
+npm-debug.log
+notified.event

@@ -13,10 +13,14 @@ const client = new StatsdClient({
 });
 
 client.increment('up,host=localhost,path=/test/home');
+console.log('test');
+
 fs.appendFile('notified.event', `Event sent ${(new Date().toString())}`, (err: Error) => {
     if (err) {
         console.log(err);
     }
 });
 
-process.exit(0);
+setTimeout(() => {
+    process.exit(0);
+}, 3000);
