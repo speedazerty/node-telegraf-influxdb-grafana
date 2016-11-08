@@ -1,0 +1,930 @@
+{
+    "kind": "List",
+    "apiVersion": "v1",
+    "metadata": {},
+    "items": [
+        {
+            "kind": "Pod",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "grafana-83bde",
+                "generateName": "grafana-",
+                "namespace": "default",
+                "selfLink": "/api/v1/namespaces/default/pods/grafana-83bde",
+                "uid": "4780acda-a4f6-11e6-9551-12a2e3b4ba19",
+                "resourceVersion": "616080",
+                "creationTimestamp": "2016-11-07T14:27:14Z",
+                "labels": {
+                    "app": "grafana",
+                    "version": "3.1.1-1470047149"
+                },
+                "annotations": {
+                    "kubernetes.io/created-by": "{\"kind\":\"SerializedReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"ReplicationController\",\"namespace\":\"default\",\"name\":\"grafana\",\"uid\":\"477d9bcc-a4f6-11e6-9551-12a2e3b4ba19\",\"apiVersion\":\"v1\",\"resourceVersion\":\"616062\"}}\n"
+                },
+                "ownerReferences": [
+                    {
+                        "apiVersion": "v1",
+                        "kind": "ReplicationController",
+                        "name": "grafana",
+                        "uid": "477d9bcc-a4f6-11e6-9551-12a2e3b4ba19",
+                        "controller": true
+                    }
+                ]
+            },
+            "spec": {
+                "volumes": [
+                    {
+                        "name": "default-token-2g99e",
+                        "secret": {
+                            "secretName": "default-token-2g99e",
+                            "defaultMode": 420
+                        }
+                    }
+                ],
+                "containers": [
+                    {
+                        "name": "grafana",
+                        "image": "grafana/grafana:3.1.1-1470047149",
+                        "resources": {},
+                        "volumeMounts": [
+                            {
+                                "name": "default-token-2g99e",
+                                "readOnly": true,
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount"
+                            }
+                        ],
+                        "terminationMessagePath": "/dev/termination-log",
+                        "imagePullPolicy": "IfNotPresent",
+                        "securityContext": {
+                            "privileged": false
+                        }
+                    }
+                ],
+                "restartPolicy": "Always",
+                "terminationGracePeriodSeconds": 30,
+                "dnsPolicy": "ClusterFirst",
+                "serviceAccountName": "default",
+                "serviceAccount": "default",
+                "nodeName": "minikube",
+                "securityContext": {}
+            },
+            "status": {
+                "phase": "Running",
+                "conditions": [
+                    {
+                        "type": "Initialized",
+                        "status": "True",
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2016-11-07T14:27:15Z"
+                    },
+                    {
+                        "type": "Ready",
+                        "status": "True",
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2016-11-07T14:27:16Z"
+                    },
+                    {
+                        "type": "PodScheduled",
+                        "status": "True",
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2016-11-07T14:27:15Z"
+                    }
+                ],
+                "hostIP": "192.168.99.100",
+                "podIP": "172.17.0.2",
+                "startTime": "2016-11-07T14:27:15Z",
+                "containerStatuses": [
+                    {
+                        "name": "grafana",
+                        "state": {
+                            "running": {
+                                "startedAt": "2016-11-07T14:27:16Z"
+                            }
+                        },
+                        "lastState": {},
+                        "ready": true,
+                        "restartCount": 0,
+                        "image": "grafana/grafana:3.1.1-1470047149",
+                        "imageID": "docker://sha256:2f92200a7a5e97952bd27533cf4058ae13ea440eb6e7ab7d4410bffba2131214",
+                        "containerID": "docker://516f67422231e67307781185c423220a5613cedc8e663b1f0c3c44d5a147207f"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "Pod",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "influxdb-mromz",
+                "generateName": "influxdb-",
+                "namespace": "default",
+                "selfLink": "/api/v1/namespaces/default/pods/influxdb-mromz",
+                "uid": "5fc59d0c-a4f6-11e6-9551-12a2e3b4ba19",
+                "resourceVersion": "616144",
+                "creationTimestamp": "2016-11-07T14:27:55Z",
+                "labels": {
+                    "app": "influxdb",
+                    "version": "1.0.2"
+                },
+                "annotations": {
+                    "kubernetes.io/created-by": "{\"kind\":\"SerializedReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"ReplicationController\",\"namespace\":\"default\",\"name\":\"influxdb\",\"uid\":\"5fc453ce-a4f6-11e6-9551-12a2e3b4ba19\",\"apiVersion\":\"v1\",\"resourceVersion\":\"616125\"}}\n"
+                },
+                "ownerReferences": [
+                    {
+                        "apiVersion": "v1",
+                        "kind": "ReplicationController",
+                        "name": "influxdb",
+                        "uid": "5fc453ce-a4f6-11e6-9551-12a2e3b4ba19",
+                        "controller": true
+                    }
+                ]
+            },
+            "spec": {
+                "volumes": [
+                    {
+                        "name": "default-token-2g99e",
+                        "secret": {
+                            "secretName": "default-token-2g99e",
+                            "defaultMode": 420
+                        }
+                    }
+                ],
+                "containers": [
+                    {
+                        "name": "influxdb",
+                        "image": "influxdb:1.0.2",
+                        "resources": {},
+                        "volumeMounts": [
+                            {
+                                "name": "default-token-2g99e",
+                                "readOnly": true,
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount"
+                            }
+                        ],
+                        "terminationMessagePath": "/dev/termination-log",
+                        "imagePullPolicy": "IfNotPresent",
+                        "securityContext": {
+                            "privileged": false
+                        }
+                    }
+                ],
+                "restartPolicy": "Always",
+                "terminationGracePeriodSeconds": 30,
+                "dnsPolicy": "ClusterFirst",
+                "serviceAccountName": "default",
+                "serviceAccount": "default",
+                "nodeName": "minikube",
+                "securityContext": {}
+            },
+            "status": {
+                "phase": "Running",
+                "conditions": [
+                    {
+                        "type": "Initialized",
+                        "status": "True",
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2016-11-07T14:27:55Z"
+                    },
+                    {
+                        "type": "Ready",
+                        "status": "True",
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2016-11-07T14:27:58Z"
+                    },
+                    {
+                        "type": "PodScheduled",
+                        "status": "True",
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2016-11-07T14:27:55Z"
+                    }
+                ],
+                "hostIP": "192.168.99.100",
+                "podIP": "172.17.0.3",
+                "startTime": "2016-11-07T14:27:55Z",
+                "containerStatuses": [
+                    {
+                        "name": "influxdb",
+                        "state": {
+                            "running": {
+                                "startedAt": "2016-11-07T14:27:57Z"
+                            }
+                        },
+                        "lastState": {},
+                        "ready": true,
+                        "restartCount": 0,
+                        "image": "influxdb:1.0.2",
+                        "imageID": "docker://sha256:09b31ff9aa2baddd52e55e7495a5bb375725070821030f4ce5f8558f82c64cf8",
+                        "containerID": "docker://74380538b52b78514c91c3c34cf99f5d06ff4403054beb386aa1799ab6de2937"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "Pod",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "node-test-9ms15",
+                "generateName": "node-test-",
+                "namespace": "default",
+                "selfLink": "/api/v1/namespaces/default/pods/node-test-9ms15",
+                "uid": "1fc48ae3-a5d5-11e6-9551-12a2e3b4ba19",
+                "resourceVersion": "720761",
+                "creationTimestamp": "2016-11-08T17:02:26Z",
+                "labels": {
+                    "app": "node-test",
+                    "version": "latest"
+                },
+                "annotations": {
+                    "kubernetes.io/created-by": "{\"kind\":\"SerializedReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"ReplicationController\",\"namespace\":\"default\",\"name\":\"node-test\",\"uid\":\"72f8a430-a4fe-11e6-9551-12a2e3b4ba19\",\"apiVersion\":\"v1\",\"resourceVersion\":\"720729\"}}\n"
+                },
+                "ownerReferences": [
+                    {
+                        "apiVersion": "v1",
+                        "kind": "ReplicationController",
+                        "name": "node-test",
+                        "uid": "72f8a430-a4fe-11e6-9551-12a2e3b4ba19",
+                        "controller": true
+                    }
+                ]
+            },
+            "spec": {
+                "volumes": [
+                    {
+                        "name": "default-token-2g99e",
+                        "secret": {
+                            "secretName": "default-token-2g99e",
+                            "defaultMode": 420
+                        }
+                    }
+                ],
+                "containers": [
+                    {
+                        "name": "node-test",
+                        "image": "speedazerty/node-statsd:latest",
+                        "env": [
+                            {
+                                "name": "STATSD_HOST",
+                                "value": "telegraf"
+                            },
+                            {
+                                "name": "STATSD_PORT",
+                                "value": "8125"
+                            },
+                            {
+                                "name": "APP_TYPE",
+                                "value": "server"
+                            },
+                            {
+                                "name": "POD_IP",
+                                "valueFrom": {
+                                    "fieldRef": {
+                                        "apiVersion": "v1",
+                                        "fieldPath": "status.podIP"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "POD_NAME",
+                                "valueFrom": {
+                                    "fieldRef": {
+                                        "apiVersion": "v1",
+                                        "fieldPath": "metadata.name"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "POD_NAMESPACE",
+                                "valueFrom": {
+                                    "fieldRef": {
+                                        "apiVersion": "v1",
+                                        "fieldPath": "metadata.namespace"
+                                    }
+                                }
+                            }
+                        ],
+                        "resources": {},
+                        "volumeMounts": [
+                            {
+                                "name": "default-token-2g99e",
+                                "readOnly": true,
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount"
+                            }
+                        ],
+                        "lifecycle": {
+                            "postStart": {
+                                "exec": {
+                                    "command": [
+                                        "node",
+                                        "build/ContainerNotify.js"
+                                    ]
+                                }
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "imagePullPolicy": "Always",
+                        "securityContext": {
+                            "privileged": false
+                        }
+                    }
+                ],
+                "restartPolicy": "Always",
+                "terminationGracePeriodSeconds": 30,
+                "dnsPolicy": "ClusterFirst",
+                "serviceAccountName": "default",
+                "serviceAccount": "default",
+                "nodeName": "minikube",
+                "securityContext": {}
+            },
+            "status": {
+                "phase": "Running",
+                "conditions": [
+                    {
+                        "type": "Initialized",
+                        "status": "True",
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2016-11-08T17:02:26Z"
+                    },
+                    {
+                        "type": "Ready",
+                        "status": "True",
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2016-11-08T17:02:32Z"
+                    },
+                    {
+                        "type": "PodScheduled",
+                        "status": "True",
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2016-11-08T17:02:26Z"
+                    }
+                ],
+                "hostIP": "192.168.99.100",
+                "podIP": "172.17.0.9",
+                "startTime": "2016-11-08T17:02:26Z",
+                "containerStatuses": [
+                    {
+                        "name": "node-test",
+                        "state": {
+                            "running": {
+                                "startedAt": "2016-11-08T17:02:29Z"
+                            }
+                        },
+                        "lastState": {},
+                        "ready": true,
+                        "restartCount": 0,
+                        "image": "speedazerty/node-statsd:latest",
+                        "imageID": "docker://sha256:4ef86d0c7ca6461b7cd294deb51a3826293ec0cbeb6235c218bf2d301679aaff",
+                        "containerID": "docker://a58d0097cdd47d7519ec946dd28ac10da06964d5b5fab0469bc0f81661da4b2a"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "Pod",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "node-test-tzxbx",
+                "generateName": "node-test-",
+                "namespace": "default",
+                "selfLink": "/api/v1/namespaces/default/pods/node-test-tzxbx",
+                "uid": "faed4044-a5d4-11e6-9551-12a2e3b4ba19",
+                "resourceVersion": "720665",
+                "creationTimestamp": "2016-11-08T17:01:24Z",
+                "labels": {
+                    "app": "node-test",
+                    "version": "latest"
+                },
+                "annotations": {
+                    "kubernetes.io/created-by": "{\"kind\":\"SerializedReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"ReplicationController\",\"namespace\":\"default\",\"name\":\"node-test\",\"uid\":\"72f8a430-a4fe-11e6-9551-12a2e3b4ba19\",\"apiVersion\":\"v1\",\"resourceVersion\":\"720633\"}}\n"
+                },
+                "ownerReferences": [
+                    {
+                        "apiVersion": "v1",
+                        "kind": "ReplicationController",
+                        "name": "node-test",
+                        "uid": "72f8a430-a4fe-11e6-9551-12a2e3b4ba19",
+                        "controller": true
+                    }
+                ]
+            },
+            "spec": {
+                "volumes": [
+                    {
+                        "name": "default-token-2g99e",
+                        "secret": {
+                            "secretName": "default-token-2g99e",
+                            "defaultMode": 420
+                        }
+                    }
+                ],
+                "containers": [
+                    {
+                        "name": "node-test",
+                        "image": "speedazerty/node-statsd:latest",
+                        "env": [
+                            {
+                                "name": "STATSD_HOST",
+                                "value": "telegraf"
+                            },
+                            {
+                                "name": "STATSD_PORT",
+                                "value": "8125"
+                            },
+                            {
+                                "name": "APP_TYPE",
+                                "value": "server"
+                            },
+                            {
+                                "name": "POD_IP",
+                                "valueFrom": {
+                                    "fieldRef": {
+                                        "apiVersion": "v1",
+                                        "fieldPath": "status.podIP"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "POD_NAME",
+                                "valueFrom": {
+                                    "fieldRef": {
+                                        "apiVersion": "v1",
+                                        "fieldPath": "metadata.name"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "POD_NAMESPACE",
+                                "valueFrom": {
+                                    "fieldRef": {
+                                        "apiVersion": "v1",
+                                        "fieldPath": "metadata.namespace"
+                                    }
+                                }
+                            }
+                        ],
+                        "resources": {},
+                        "volumeMounts": [
+                            {
+                                "name": "default-token-2g99e",
+                                "readOnly": true,
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount"
+                            }
+                        ],
+                        "lifecycle": {
+                            "postStart": {
+                                "exec": {
+                                    "command": [
+                                        "node",
+                                        "build/ContainerNotify.js"
+                                    ]
+                                }
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "imagePullPolicy": "Always",
+                        "securityContext": {
+                            "privileged": false
+                        }
+                    }
+                ],
+                "restartPolicy": "Always",
+                "terminationGracePeriodSeconds": 30,
+                "dnsPolicy": "ClusterFirst",
+                "serviceAccountName": "default",
+                "serviceAccount": "default",
+                "nodeName": "minikube",
+                "securityContext": {}
+            },
+            "status": {
+                "phase": "Running",
+                "conditions": [
+                    {
+                        "type": "Initialized",
+                        "status": "True",
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2016-11-08T17:01:24Z"
+                    },
+                    {
+                        "type": "Ready",
+                        "status": "True",
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2016-11-08T17:01:29Z"
+                    },
+                    {
+                        "type": "PodScheduled",
+                        "status": "True",
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2016-11-08T17:01:24Z"
+                    }
+                ],
+                "hostIP": "192.168.99.100",
+                "podIP": "172.17.0.5",
+                "startTime": "2016-11-08T17:01:24Z",
+                "containerStatuses": [
+                    {
+                        "name": "node-test",
+                        "state": {
+                            "running": {
+                                "startedAt": "2016-11-08T17:01:26Z"
+                            }
+                        },
+                        "lastState": {},
+                        "ready": true,
+                        "restartCount": 0,
+                        "image": "speedazerty/node-statsd:latest",
+                        "imageID": "docker://sha256:4ef86d0c7ca6461b7cd294deb51a3826293ec0cbeb6235c218bf2d301679aaff",
+                        "containerID": "docker://52c724baeb91f373821144ee6c77e02501caaec941986877970802a2d9411a33"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "Pod",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "node-test-x83u3",
+                "generateName": "node-test-",
+                "namespace": "default",
+                "selfLink": "/api/v1/namespaces/default/pods/node-test-x83u3",
+                "uid": "1fc4199a-a5d5-11e6-9551-12a2e3b4ba19",
+                "resourceVersion": "720757",
+                "creationTimestamp": "2016-11-08T17:02:26Z",
+                "labels": {
+                    "app": "node-test",
+                    "version": "latest"
+                },
+                "annotations": {
+                    "kubernetes.io/created-by": "{\"kind\":\"SerializedReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"ReplicationController\",\"namespace\":\"default\",\"name\":\"node-test\",\"uid\":\"72f8a430-a4fe-11e6-9551-12a2e3b4ba19\",\"apiVersion\":\"v1\",\"resourceVersion\":\"720729\"}}\n"
+                },
+                "ownerReferences": [
+                    {
+                        "apiVersion": "v1",
+                        "kind": "ReplicationController",
+                        "name": "node-test",
+                        "uid": "72f8a430-a4fe-11e6-9551-12a2e3b4ba19",
+                        "controller": true
+                    }
+                ]
+            },
+            "spec": {
+                "volumes": [
+                    {
+                        "name": "default-token-2g99e",
+                        "secret": {
+                            "secretName": "default-token-2g99e",
+                            "defaultMode": 420
+                        }
+                    }
+                ],
+                "containers": [
+                    {
+                        "name": "node-test",
+                        "image": "speedazerty/node-statsd:latest",
+                        "env": [
+                            {
+                                "name": "STATSD_HOST",
+                                "value": "telegraf"
+                            },
+                            {
+                                "name": "STATSD_PORT",
+                                "value": "8125"
+                            },
+                            {
+                                "name": "APP_TYPE",
+                                "value": "server"
+                            },
+                            {
+                                "name": "POD_IP",
+                                "valueFrom": {
+                                    "fieldRef": {
+                                        "apiVersion": "v1",
+                                        "fieldPath": "status.podIP"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "POD_NAME",
+                                "valueFrom": {
+                                    "fieldRef": {
+                                        "apiVersion": "v1",
+                                        "fieldPath": "metadata.name"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "POD_NAMESPACE",
+                                "valueFrom": {
+                                    "fieldRef": {
+                                        "apiVersion": "v1",
+                                        "fieldPath": "metadata.namespace"
+                                    }
+                                }
+                            }
+                        ],
+                        "resources": {},
+                        "volumeMounts": [
+                            {
+                                "name": "default-token-2g99e",
+                                "readOnly": true,
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount"
+                            }
+                        ],
+                        "lifecycle": {
+                            "postStart": {
+                                "exec": {
+                                    "command": [
+                                        "node",
+                                        "build/ContainerNotify.js"
+                                    ]
+                                }
+                            }
+                        },
+                        "terminationMessagePath": "/dev/termination-log",
+                        "imagePullPolicy": "Always",
+                        "securityContext": {
+                            "privileged": false
+                        }
+                    }
+                ],
+                "restartPolicy": "Always",
+                "terminationGracePeriodSeconds": 30,
+                "dnsPolicy": "ClusterFirst",
+                "serviceAccountName": "default",
+                "serviceAccount": "default",
+                "nodeName": "minikube",
+                "securityContext": {}
+            },
+            "status": {
+                "phase": "Running",
+                "conditions": [
+                    {
+                        "type": "Initialized",
+                        "status": "True",
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2016-11-08T17:02:26Z"
+                    },
+                    {
+                        "type": "Ready",
+                        "status": "True",
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2016-11-08T17:02:31Z"
+                    },
+                    {
+                        "type": "PodScheduled",
+                        "status": "True",
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2016-11-08T17:02:26Z"
+                    }
+                ],
+                "hostIP": "192.168.99.100",
+                "podIP": "172.17.0.8",
+                "startTime": "2016-11-08T17:02:26Z",
+                "containerStatuses": [
+                    {
+                        "name": "node-test",
+                        "state": {
+                            "running": {
+                                "startedAt": "2016-11-08T17:02:28Z"
+                            }
+                        },
+                        "lastState": {},
+                        "ready": true,
+                        "restartCount": 0,
+                        "image": "speedazerty/node-statsd:latest",
+                        "imageID": "docker://sha256:4ef86d0c7ca6461b7cd294deb51a3826293ec0cbeb6235c218bf2d301679aaff",
+                        "containerID": "docker://012487ce2855604738e4181d15292e6bc108745b6de1281e81be37d1a3844a57"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "Pod",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "requester-ukwj4",
+                "generateName": "requester-",
+                "namespace": "default",
+                "selfLink": "/api/v1/namespaces/default/pods/requester-ukwj4",
+                "uid": "c7968944-a5d4-11e6-9551-12a2e3b4ba19",
+                "resourceVersion": "720580",
+                "creationTimestamp": "2016-11-08T16:59:58Z",
+                "labels": {
+                    "app": "requester",
+                    "version": "latest"
+                },
+                "annotations": {
+                    "kubernetes.io/created-by": "{\"kind\":\"SerializedReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"ReplicationController\",\"namespace\":\"default\",\"name\":\"requester\",\"uid\":\"a926c1b2-a4fa-11e6-9551-12a2e3b4ba19\",\"apiVersion\":\"v1\",\"resourceVersion\":\"720495\"}}\n"
+                },
+                "ownerReferences": [
+                    {
+                        "apiVersion": "v1",
+                        "kind": "ReplicationController",
+                        "name": "requester",
+                        "uid": "a926c1b2-a4fa-11e6-9551-12a2e3b4ba19",
+                        "controller": true
+                    }
+                ]
+            },
+            "spec": {
+                "volumes": [
+                    {
+                        "name": "default-token-2g99e",
+                        "secret": {
+                            "secretName": "default-token-2g99e",
+                            "defaultMode": 420
+                        }
+                    }
+                ],
+                "containers": [
+                    {
+                        "name": "requester",
+                        "image": "speedazerty/node-statsd:latest",
+                        "env": [
+                            {
+                                "name": "APP_HOST",
+                                "value": "node-test"
+                            },
+                            {
+                                "name": "APP_PORT",
+                                "value": "8080"
+                            },
+                            {
+                                "name": "APP_TYPE",
+                                "value": "requester"
+                            }
+                        ],
+                        "resources": {},
+                        "volumeMounts": [
+                            {
+                                "name": "default-token-2g99e",
+                                "readOnly": true,
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount"
+                            }
+                        ],
+                        "terminationMessagePath": "/dev/termination-log",
+                        "imagePullPolicy": "Always",
+                        "securityContext": {
+                            "privileged": false
+                        }
+                    }
+                ],
+                "restartPolicy": "Always",
+                "terminationGracePeriodSeconds": 30,
+                "dnsPolicy": "ClusterFirst",
+                "serviceAccountName": "default",
+                "serviceAccount": "default",
+                "nodeName": "minikube",
+                "securityContext": {}
+            },
+            "status": {
+                "phase": "Running",
+                "conditions": [
+                    {
+                        "type": "Initialized",
+                        "status": "True",
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2016-11-08T16:59:58Z"
+                    },
+                    {
+                        "type": "Ready",
+                        "status": "True",
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2016-11-08T17:00:40Z"
+                    },
+                    {
+                        "type": "PodScheduled",
+                        "status": "True",
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2016-11-08T16:59:58Z"
+                    }
+                ],
+                "hostIP": "192.168.99.100",
+                "podIP": "172.17.0.7",
+                "startTime": "2016-11-08T16:59:58Z",
+                "containerStatuses": [
+                    {
+                        "name": "requester",
+                        "state": {
+                            "running": {
+                                "startedAt": "2016-11-08T17:00:40Z"
+                            }
+                        },
+                        "lastState": {},
+                        "ready": true,
+                        "restartCount": 0,
+                        "image": "speedazerty/node-statsd:latest",
+                        "imageID": "docker://sha256:4ef86d0c7ca6461b7cd294deb51a3826293ec0cbeb6235c218bf2d301679aaff",
+                        "containerID": "docker://62fda6bba2e29257d8b8ab9944c9c42de35fd308673d9621e2b5b50e48e1d068"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "Pod",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "telegraf-6iw2x",
+                "generateName": "telegraf-",
+                "namespace": "default",
+                "selfLink": "/api/v1/namespaces/default/pods/telegraf-6iw2x",
+                "uid": "cbecc56c-a4f6-11e6-9551-12a2e3b4ba19",
+                "resourceVersion": "616404",
+                "creationTimestamp": "2016-11-07T14:30:57Z",
+                "labels": {
+                    "app": "telegraf",
+                    "version": "latest"
+                },
+                "annotations": {
+                    "kubernetes.io/created-by": "{\"kind\":\"SerializedReference\",\"apiVersion\":\"v1\",\"reference\":{\"kind\":\"ReplicationController\",\"namespace\":\"default\",\"name\":\"telegraf\",\"uid\":\"cbe7d8bb-a4f6-11e6-9551-12a2e3b4ba19\",\"apiVersion\":\"v1\",\"resourceVersion\":\"616385\"}}\n"
+                },
+                "ownerReferences": [
+                    {
+                        "apiVersion": "v1",
+                        "kind": "ReplicationController",
+                        "name": "telegraf",
+                        "uid": "cbe7d8bb-a4f6-11e6-9551-12a2e3b4ba19",
+                        "controller": true
+                    }
+                ]
+            },
+            "spec": {
+                "volumes": [
+                    {
+                        "name": "default-token-2g99e",
+                        "secret": {
+                            "secretName": "default-token-2g99e",
+                            "defaultMode": 420
+                        }
+                    }
+                ],
+                "containers": [
+                    {
+                        "name": "telegraf",
+                        "image": "speedazerty/telegraf:latest",
+                        "resources": {},
+                        "volumeMounts": [
+                            {
+                                "name": "default-token-2g99e",
+                                "readOnly": true,
+                                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount"
+                            }
+                        ],
+                        "terminationMessagePath": "/dev/termination-log",
+                        "imagePullPolicy": "Always",
+                        "securityContext": {
+                            "privileged": false
+                        }
+                    }
+                ],
+                "restartPolicy": "Always",
+                "terminationGracePeriodSeconds": 30,
+                "dnsPolicy": "ClusterFirst",
+                "serviceAccountName": "default",
+                "serviceAccount": "default",
+                "nodeName": "minikube",
+                "securityContext": {}
+            },
+            "status": {
+                "phase": "Running",
+                "conditions": [
+                    {
+                        "type": "Initialized",
+                        "status": "True",
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2016-11-07T14:30:57Z"
+                    },
+                    {
+                        "type": "Ready",
+                        "status": "True",
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2016-11-07T14:30:59Z"
+                    },
+                    {
+                        "type": "PodScheduled",
+                        "status": "True",
+                        "lastProbeTime": null,
+                        "lastTransitionTime": "2016-11-07T14:30:57Z"
+                    }
+                ],
+                "hostIP": "192.168.99.100",
+                "podIP": "172.17.0.6",
+                "startTime": "2016-11-07T14:30:57Z",
+                "containerStatuses": [
+                    {
+                        "name": "telegraf",
+                        "state": {
+                            "running": {
+                                "startedAt": "2016-11-07T14:30:59Z"
+                            }
+                        },
+                        "lastState": {},
+                        "ready": true,
+                        "restartCount": 0,
+                        "image": "speedazerty/telegraf:latest",
+                        "imageID": "docker://sha256:12a21553c5df2e927a64139d100d568622ce43154862b65a44fd7db4febbfa6c",
+                        "containerID": "docker://dce04cf3367c1f14993ebb91d10b9537b9825dd6571bc5370f80e15094bda460"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,362 @@
+{
+    "kind": "List",
+    "apiVersion": "v1",
+    "metadata": {},
+    "items": [
+        {
+            "kind": "ReplicationController",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "grafana",
+                "namespace": "default",
+                "selfLink": "/api/v1/namespaces/default/replicationcontrollers/grafana",
+                "uid": "477d9bcc-a4f6-11e6-9551-12a2e3b4ba19",
+                "resourceVersion": "616081",
+                "generation": 1,
+                "creationTimestamp": "2016-11-07T14:27:14Z",
+                "labels": {
+                    "app": "grafana",
+                    "version": "3.1.1-1470047149"
+                }
+            },
+            "spec": {
+                "replicas": 1,
+                "selector": {
+                    "app": "grafana",
+                    "version": "3.1.1-1470047149"
+                },
+                "template": {
+                    "metadata": {
+                        "name": "grafana",
+                        "creationTimestamp": null,
+                        "labels": {
+                            "app": "grafana",
+                            "version": "3.1.1-1470047149"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "name": "grafana",
+                                "image": "grafana/grafana:3.1.1-1470047149",
+                                "resources": {},
+                                "terminationMessagePath": "/dev/termination-log",
+                                "imagePullPolicy": "IfNotPresent",
+                                "securityContext": {
+                                    "privileged": false
+                                }
+                            }
+                        ],
+                        "restartPolicy": "Always",
+                        "terminationGracePeriodSeconds": 30,
+                        "dnsPolicy": "ClusterFirst",
+                        "securityContext": {}
+                    }
+                }
+            },
+            "status": {
+                "replicas": 1,
+                "fullyLabeledReplicas": 1,
+                "readyReplicas": 1,
+                "observedGeneration": 1
+            }
+        },
+        {
+            "kind": "ReplicationController",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "influxdb",
+                "namespace": "default",
+                "selfLink": "/api/v1/namespaces/default/replicationcontrollers/influxdb",
+                "uid": "5fc453ce-a4f6-11e6-9551-12a2e3b4ba19",
+                "resourceVersion": "616146",
+                "generation": 1,
+                "creationTimestamp": "2016-11-07T14:27:55Z",
+                "labels": {
+                    "app": "influxdb",
+                    "version": "1.0.2"
+                }
+            },
+            "spec": {
+                "replicas": 1,
+                "selector": {
+                    "app": "influxdb",
+                    "version": "1.0.2"
+                },
+                "template": {
+                    "metadata": {
+                        "name": "influxdb",
+                        "creationTimestamp": null,
+                        "labels": {
+                            "app": "influxdb",
+                            "version": "1.0.2"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "name": "influxdb",
+                                "image": "influxdb:1.0.2",
+                                "resources": {},
+                                "terminationMessagePath": "/dev/termination-log",
+                                "imagePullPolicy": "IfNotPresent",
+                                "securityContext": {
+                                    "privileged": false
+                                }
+                            }
+                        ],
+                        "restartPolicy": "Always",
+                        "terminationGracePeriodSeconds": 30,
+                        "dnsPolicy": "ClusterFirst",
+                        "securityContext": {}
+                    }
+                }
+            },
+            "status": {
+                "replicas": 1,
+                "fullyLabeledReplicas": 1,
+                "readyReplicas": 1,
+                "observedGeneration": 1
+            }
+        },
+        {
+            "kind": "ReplicationController",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "node-test",
+                "namespace": "default",
+                "selfLink": "/api/v1/namespaces/default/replicationcontrollers/node-test",
+                "uid": "72f8a430-a4fe-11e6-9551-12a2e3b4ba19",
+                "resourceVersion": "720762",
+                "generation": 13,
+                "creationTimestamp": "2016-11-07T15:25:43Z",
+                "labels": {
+                    "app": "node-test",
+                    "version": "latest"
+                }
+            },
+            "spec": {
+                "replicas": 3,
+                "selector": {
+                    "app": "node-test",
+                    "version": "latest"
+                },
+                "template": {
+                    "metadata": {
+                        "name": "node-test",
+                        "creationTimestamp": null,
+                        "labels": {
+                            "app": "node-test",
+                            "version": "latest"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "name": "node-test",
+                                "image": "speedazerty/node-statsd:latest",
+                                "env": [
+                                    {
+                                        "name": "STATSD_HOST",
+                                        "value": "telegraf"
+                                    },
+                                    {
+                                        "name": "STATSD_PORT",
+                                        "value": "8125"
+                                    },
+                                    {
+                                        "name": "APP_TYPE",
+                                        "value": "server"
+                                    },
+                                    {
+                                        "name": "POD_IP",
+                                        "valueFrom": {
+                                            "fieldRef": {
+                                                "apiVersion": "v1",
+                                                "fieldPath": "status.podIP"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "POD_NAME",
+                                        "valueFrom": {
+                                            "fieldRef": {
+                                                "apiVersion": "v1",
+                                                "fieldPath": "metadata.name"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "POD_NAMESPACE",
+                                        "valueFrom": {
+                                            "fieldRef": {
+                                                "apiVersion": "v1",
+                                                "fieldPath": "metadata.namespace"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "resources": {},
+                                "lifecycle": {
+                                    "postStart": {
+                                        "exec": {
+                                            "command": [
+                                                "node",
+                                                "build/ContainerNotify.js"
+                                            ]
+                                        }
+                                    }
+                                },
+                                "terminationMessagePath": "/dev/termination-log",
+                                "imagePullPolicy": "Always",
+                                "securityContext": {
+                                    "privileged": false
+                                }
+                            }
+                        ],
+                        "restartPolicy": "Always",
+                        "terminationGracePeriodSeconds": 30,
+                        "dnsPolicy": "ClusterFirst",
+                        "securityContext": {}
+                    }
+                }
+            },
+            "status": {
+                "replicas": 3,
+                "fullyLabeledReplicas": 3,
+                "readyReplicas": 3,
+                "observedGeneration": 13
+            }
+        },
+        {
+            "kind": "ReplicationController",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "requester",
+                "namespace": "default",
+                "selfLink": "/api/v1/namespaces/default/replicationcontrollers/requester",
+                "uid": "a926c1b2-a4fa-11e6-9551-12a2e3b4ba19",
+                "resourceVersion": "720581",
+                "generation": 3,
+                "creationTimestamp": "2016-11-07T14:58:36Z",
+                "labels": {
+                    "app": "requester",
+                    "version": "latest"
+                }
+            },
+            "spec": {
+                "replicas": 1,
+                "selector": {
+                    "app": "requester",
+                    "version": "latest"
+                },
+                "template": {
+                    "metadata": {
+                        "name": "requester",
+                        "creationTimestamp": null,
+                        "labels": {
+                            "app": "requester",
+                            "version": "latest"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "name": "requester",
+                                "image": "speedazerty/node-statsd:latest",
+                                "env": [
+                                    {
+                                        "name": "APP_HOST",
+                                        "value": "node-test"
+                                    },
+                                    {
+                                        "name": "APP_PORT",
+                                        "value": "8080"
+                                    },
+                                    {
+                                        "name": "APP_TYPE",
+                                        "value": "requester"
+                                    }
+                                ],
+                                "resources": {},
+                                "terminationMessagePath": "/dev/termination-log",
+                                "imagePullPolicy": "Always",
+                                "securityContext": {
+                                    "privileged": false
+                                }
+                            }
+                        ],
+                        "restartPolicy": "Always",
+                        "terminationGracePeriodSeconds": 30,
+                        "dnsPolicy": "ClusterFirst",
+                        "securityContext": {}
+                    }
+                }
+            },
+            "status": {
+                "replicas": 1,
+                "fullyLabeledReplicas": 1,
+                "readyReplicas": 1,
+                "observedGeneration": 3
+            }
+        },
+        {
+            "kind": "ReplicationController",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "telegraf",
+                "namespace": "default",
+                "selfLink": "/api/v1/namespaces/default/replicationcontrollers/telegraf",
+                "uid": "cbe7d8bb-a4f6-11e6-9551-12a2e3b4ba19",
+                "resourceVersion": "616405",
+                "generation": 1,
+                "creationTimestamp": "2016-11-07T14:30:57Z",
+                "labels": {
+                    "app": "telegraf",
+                    "version": "latest"
+                }
+            },
+            "spec": {
+                "replicas": 1,
+                "selector": {
+                    "app": "telegraf",
+                    "version": "latest"
+                },
+                "template": {
+                    "metadata": {
+                        "name": "telegraf",
+                        "creationTimestamp": null,
+                        "labels": {
+                            "app": "telegraf",
+                            "version": "latest"
+                        }
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "name": "telegraf",
+                                "image": "speedazerty/telegraf:latest",
+                                "resources": {},
+                                "terminationMessagePath": "/dev/termination-log",
+                                "imagePullPolicy": "Always",
+                                "securityContext": {
+                                    "privileged": false
+                                }
+                            }
+                        ],
+                        "restartPolicy": "Always",
+                        "terminationGracePeriodSeconds": 30,
+                        "dnsPolicy": "ClusterFirst",
+                        "securityContext": {}
+                    }
+                }
+            },
+            "status": {
+                "replicas": 1,
+                "fullyLabeledReplicas": 1,
+                "readyReplicas": 1,
+                "observedGeneration": 1
+            }
+        }
+    ]
+}

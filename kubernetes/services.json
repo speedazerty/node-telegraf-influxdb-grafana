@@ -1,0 +1,193 @@
+{
+    "kind": "List",
+    "apiVersion": "v1",
+    "metadata": {},
+    "items": [
+        {
+            "kind": "Service",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "grafana",
+                "namespace": "default",
+                "selfLink": "/api/v1/namespaces/default/services/grafana",
+                "uid": "47833add-a4f6-11e6-9551-12a2e3b4ba19",
+                "resourceVersion": "616069",
+                "creationTimestamp": "2016-11-07T14:27:15Z",
+                "labels": {
+                    "app": "grafana",
+                    "version": "3.1.1-1470047149"
+                }
+            },
+            "spec": {
+                "ports": [
+                    {
+                        "name": "tcp-3000-3000-qe339",
+                        "protocol": "TCP",
+                        "port": 3000,
+                        "targetPort": 3000,
+                        "nodePort": 30165
+                    }
+                ],
+                "selector": {
+                    "app": "grafana",
+                    "version": "3.1.1-1470047149"
+                },
+                "clusterIP": "10.0.0.156",
+                "type": "LoadBalancer",
+                "sessionAffinity": "None"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "kind": "Service",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "influxdb",
+                "namespace": "default",
+                "selfLink": "/api/v1/namespaces/default/services/influxdb",
+                "uid": "5fc7c7a7-a4f6-11e6-9551-12a2e3b4ba19",
+                "resourceVersion": "616130",
+                "creationTimestamp": "2016-11-07T14:27:55Z",
+                "labels": {
+                    "app": "influxdb",
+                    "version": "1.0.2"
+                }
+            },
+            "spec": {
+                "ports": [
+                    {
+                        "name": "tcp-8086-8086-o7vcx",
+                        "protocol": "TCP",
+                        "port": 8086,
+                        "targetPort": 8086,
+                        "nodePort": 30375
+                    },
+                    {
+                        "name": "tcp-8083-8083-sxf1o",
+                        "protocol": "TCP",
+                        "port": 8083,
+                        "targetPort": 8083,
+                        "nodePort": 32181
+                    }
+                ],
+                "selector": {
+                    "app": "influxdb",
+                    "version": "1.0.2"
+                },
+                "clusterIP": "10.0.0.164",
+                "type": "LoadBalancer",
+                "sessionAffinity": "None"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "kind": "Service",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "kubernetes",
+                "namespace": "default",
+                "selfLink": "/api/v1/namespaces/default/services/kubernetes",
+                "uid": "e0c046c9-9ae3-11e6-9691-12a2e3b4ba19",
+                "resourceVersion": "7",
+                "creationTimestamp": "2016-10-25T18:50:20Z",
+                "labels": {
+                    "component": "apiserver",
+                    "provider": "kubernetes"
+                }
+            },
+            "spec": {
+                "ports": [
+                    {
+                        "name": "https",
+                        "protocol": "TCP",
+                        "port": 443,
+                        "targetPort": 443
+                    }
+                ],
+                "clusterIP": "10.0.0.1",
+                "type": "ClusterIP",
+                "sessionAffinity": "ClientIP"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "kind": "Service",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "node-test",
+                "namespace": "default",
+                "selfLink": "/api/v1/namespaces/default/services/node-test",
+                "uid": "72fb5615-a4fe-11e6-9551-12a2e3b4ba19",
+                "resourceVersion": "620481",
+                "creationTimestamp": "2016-11-07T15:25:43Z",
+                "labels": {
+                    "app": "node-test",
+                    "version": "latest"
+                }
+            },
+            "spec": {
+                "ports": [
+                    {
+                        "name": "tcp-8080-8080-wnzyz",
+                        "protocol": "TCP",
+                        "port": 8080,
+                        "targetPort": 8080,
+                        "nodePort": 31027
+                    }
+                ],
+                "selector": {
+                    "app": "node-test",
+                    "version": "latest"
+                },
+                "clusterIP": "10.0.0.96",
+                "type": "LoadBalancer",
+                "sessionAffinity": "None"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        },
+        {
+            "kind": "Service",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "telegraf",
+                "namespace": "default",
+                "selfLink": "/api/v1/namespaces/default/services/telegraf",
+                "uid": "cbecdf09-a4f6-11e6-9551-12a2e3b4ba19",
+                "resourceVersion": "616388",
+                "creationTimestamp": "2016-11-07T14:30:57Z",
+                "labels": {
+                    "app": "telegraf",
+                    "version": "latest"
+                }
+            },
+            "spec": {
+                "ports": [
+                    {
+                        "name": "udp-8125-8125-ph3ga",
+                        "protocol": "UDP",
+                        "port": 8125,
+                        "targetPort": 8125
+                    }
+                ],
+                "selector": {
+                    "app": "telegraf",
+                    "version": "latest"
+                },
+                "clusterIP": "10.0.0.127",
+                "type": "ClusterIP",
+                "sessionAffinity": "None"
+            },
+            "status": {
+                "loadBalancer": {}
+            }
+        }
+    ]
+}
